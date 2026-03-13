@@ -45,7 +45,7 @@ This is the common system model used by both MPC and RL. The precise mathematica
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/jjalcaraz-upct/inventory-control
 cd Inventory
 ```
 
@@ -125,19 +125,7 @@ scripts/
 
 artifacts/
   sku_registry/
-    skus/
-      <sku_id>/
-        sku.json
-        agents/
-          <agent_id>/
-            agent.json
-            evaluations/
   trained_models/
-    <sku_id>/
-      <agent_id>/
-        model_best.zip
-        status.json
-        learning_curves/
 ```
 
 ## Core Modules
@@ -210,9 +198,46 @@ The repository also includes a few small scripts for direct execution:
 - [scripts/train_dqn_sac.py](scripts/train_dqn_sac.py): minimal RL workflow for training, evaluation, registration, and learning-curve plotting.
 - [scripts/compare_policies.py](scripts/compare_policies.py): compares the first two registered RL agents for one SKU on a shared scenario.
 - [scripts/list_registered_rl_agents.py](scripts/list_registered_rl_agents.py): lists registered SKUs and RL agents.
+- [scripts/delete_old_agents_for_sku.py](scripts/delete_old_agents_for_sku.py): keeps the most recent agent per algorithm for a given SKU and deletes the older ones.
+
+- [scripts/train_dqn_sac_nonblocking.py](scripts/train_dqn_sac_nonblocking.py): non-blocking variant that reports training progress based on persisted state files.
 
 ## Persistence
 
 Registered RL agents are stored under `artifacts/sku_registry/`, while trained models and learning curves are stored under `artifacts/trained_models/`.
 
+The storage is organized in files with the following structure:
+
+```
+artifacts/
+  sku_registry/
+    skus/
+      <sku_id>/
+        sku.json
+        agents/
+          <agent_id>/
+            agent.json
+            evaluations/
+  trained_models/
+    <sku_id>/
+      <agent_id>/
+        model_best.zip
+        status.json
+        learning_curves/
+```
+
 The notebooks and scripts above show the expected workflow for creating, persisting, loading, and comparing agents.
+
+## Citation
+
+If you use this repository in academic work, you can cite it as:
+
+```bibtex
+@misc{alcaraz_inventory_control_mpc_rl,
+  author       = {Juan J. Alcaraz},
+  title        = {Inventory Control with MPC and RL},
+  howpublished = {\url{https://github.com/jjalcaraz-upct/inventory-control}},
+  note         = {GitHub repository},
+  year         = {2026}
+}
+```
