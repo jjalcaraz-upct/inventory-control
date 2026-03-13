@@ -1,8 +1,37 @@
-# MILP Formulation for a Single-SKU Inventory Control MPC Problem
+# Formulation for a Single-SKU Inventory Control MPC Problem
 
-This document specifies **precisely and unambiguously** the mathematical model that must be translated into **Pyomo code**. The goal is to construct a **MILP** corresponding to a **finite-horizon MPC inventory optimization with scenario sampling**.
+We consider a **stochastic single-SKU inventory control problem** with uncertain demand and stochastic lead times. The system state consists of the **on-hand inventory level** and an **in-transit pipeline** representing outstanding orders scheduled to arrive in future periods. Decisions correspond to the **order quantities placed at each period**, subject to fixed and variable ordering costs.
 
-The implementation should be modular so that the **horizon length, number of scenarios, and scenario trajectories can be easily changed**.
+The control strategy follows a **Model Predictive Control (MPC)** framework with a **receding horizon**. At each decision epoch, the controller optimizes the ordering policy over a finite planning horizon of length $H$. Because both demand and lead times are uncertain, the future evolution of the system is represented using a **scenario tree approximation**, where a finite set of sampled trajectories captures possible realizations of the stochastic variables.
+
+For each MPC step, the controller performs the following procedure:
+
+1. **Scenario generation**  
+   A set of $N_s$ scenarios is sampled, each specifying realizations of demand and lead time for all periods within the horizon.
+
+2. **Finite-horizon optimization**  
+   Using these scenarios, a **deterministic equivalent optimization problem** is constructed. The problem jointly considers all scenarios and computes a sequence of order decisions that minimizes the **expected operational cost** over the horizon.
+
+3. **First-stage implementation**  
+   Only the **first control action** (the order quantity for the current period) is implemented.
+
+4. **Receding horizon update**  
+   At the next time step, the system state is updated using the observed demand and arrivals, new scenarios are generated, and the optimization is solved again.
+
+The resulting optimization problem is formulated as a **Mixed-Integer Linear Program (MILP)**. The integer variables model the **fixed ordering cost structure** through binary indicators that activate order placements. Continuous variables represent inventory levels, pipeline positions, arrivals, and lost sales across all scenarios.
+
+The model explicitly captures the **dynamics of the inventory pipeline**, where orders placed at time $k$ arrive after a stochastic lead time. To represent this mechanism, the pipeline is modeled as a vector of future arrivals indexed by the number of periods until delivery. Pipeline inventory shifts forward each period, and newly placed orders are injected into the appropriate pipeline position depending on the realized lead time in each scenario.
+
+The objective function minimizes the **expected total cost** across all scenarios, including:
+
+- fixed and variable **ordering costs**,  
+- **holding costs** for inventory carried over time,  
+- **lost-sales penalties** when demand exceeds available supply, and  
+- a **terminal penalty** encouraging the final inventory level to remain close to a target level.
+
+Within each MPC step, the optimization determines a sequence of order quantities that balances these costs while accounting for uncertainty in demand and lead times. Because the decision variables for ordering are **scenario-independent**, the formulation naturally corresponds to a **two-stage stochastic programming structure**: first-stage ordering decisions are common across scenarios, while inventory trajectories evolve separately under each stochastic realization.
+
+By repeatedly solving this MILP and applying only the first decision at each time step, the controller adapts dynamically to new information while continuously re-optimizing the inventory policy.
 
 ---
 
