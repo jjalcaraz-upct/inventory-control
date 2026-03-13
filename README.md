@@ -9,8 +9,8 @@ It provides a compact but complete workflow for:
 - and comparing their KPI distributions.
 
 Includes two complementary control approaches:
-- Model Predictive Control (MPC) built with Pyomo.
-- Reinforcement Learning (RL) built on Gymnasium and Stable-Baselines3.
+- Model Predictive Control (MPC) built with [Pyomo](https://github.com/Pyomo/pyomo).
+- Reinforcement Learning (RL) built on [Gymnasium](https://github.com/Farama-Foundation/Gymnasium) and [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3).
 
 ## System Dynamics
 
@@ -204,9 +204,9 @@ The repository also includes a few small scripts for direct execution:
 
 ## Persistence
 
-Registered RL agents are stored under `artifacts/sku_registry/`, while trained models and learning curves are stored under `artifacts/trained_models/`.
+Registered RL agents are stored in `artifacts/sku_registry/`, while the corresponding trained models and their learning curves are stored in `artifacts/trained_models/`.
 
-The storage is organized in files with the following structure:
+The storage layout follows the directory structure below:
 
 ```
 artifacts/
@@ -228,9 +228,9 @@ artifacts/
 
 The notebooks and scripts above show the expected workflow for creating, persisting, loading, and comparing agents.
 
-## Citation
+## How to cite this work
 
-If you use this repository in academic work, you can cite it as:
+If you use this repository in academic work, please cite it as:
 
 ```bibtex
 @misc{alcaraz_inventory_control_mpc_rl,
@@ -241,3 +241,7 @@ If you use this repository in academic work, you can cite it as:
   year         = {2026}
 }
 ```
+
+## Licensing information
+
+This code is released under the MIT lisence.
