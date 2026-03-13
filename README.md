@@ -172,7 +172,6 @@ artifacts/
         agents/
           <agent_id>/
             agent.json
-            evaluations/
   trained_models/
     <sku_id>/
       <agent_id>/
