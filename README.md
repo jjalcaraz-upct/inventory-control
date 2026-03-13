@@ -157,6 +157,8 @@ The repository also includes a few small scripts for direct execution:
 
 - [scripts/train_dqn_sac_nonblocking.py](scripts/train_dqn_sac_nonblocking.py): non-blocking variant that reports training progress based on persisted state files.
 
+The notebooks and scripts above show the expected workflow for creating, persisting, loading, and comparing agents.
+
 ## Persistence
 
 Registered RL agents are stored in `artifacts/sku_registry/`, while the corresponding trained models and their learning curves are stored in `artifacts/trained_models/`.
@@ -179,8 +181,6 @@ artifacts/
         status.json
         learning_curves/
 ```
-
-The notebooks and scripts above show the expected workflow for creating, persisting, loading, and comparing agents.
 
 ## How to cite this work
 
