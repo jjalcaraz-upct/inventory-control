@@ -83,51 +83,6 @@ Notes:
 python -c "import control_mpc, control_rl; print('imports ok')"
 ```
 
-## Repository Layout
-
-```text
-control_mpc/
-  controller.py
-  milp_single_sku.py
-  mpc_policy.py
-  scenarios.py
-
-control_rl/
-  action_utils.py
-  agent_specs.py
-  agents.py
-  env_single_sku.py
-  factory.py
-  registry.py
-  training.py
-  wrappers.py
-
-model/
-  demand.py
-  evaluation.py
-  eval_storage.py
-  io.py
-  metrics.py
-  state.py
-
-notebooks/
-  agent_comparison.ipynb
-  mpc_visualization.ipynb
-  rl_training.ipynb
-
-scripts/
-  compare_policies.py
-  delete_old_agents_for_sku.py
-  list_registered_rl_agents.py
-  run_toy.py
-  train_dqn_sac.py
-  train_dqn_sac_nonblocking.py
-
-artifacts/
-  sku_registry/
-  trained_models/
-```
-
 ## Core Modules
 
 ### RL service API
