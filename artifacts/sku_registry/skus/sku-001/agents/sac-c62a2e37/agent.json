@@ -1,0 +1,52 @@
+{
+  "action_mode": "continuous",
+  "agent_id": "sac_c62a2e37",
+  "algorithm_config": {
+    "action_mode": "continuous",
+    "batch_size": 128,
+    "buffer_size": 5000,
+    "gamma": 0.99,
+    "learning_rate": 0.0003,
+    "learning_starts": 500,
+    "tau": 0.005
+  },
+  "algorithm_config_key": "c62a2e37",
+  "algorithm_name": "SAC",
+  "created_at": "2026-03-13T11:01:44Z",
+  "env_config": {
+    "K_fix": 8.0,
+    "Lmax": 3,
+    "demand_spec": {
+      "high": 20.0,
+      "kind": "normal_clipped",
+      "low": 0.0,
+      "mean": 8.5,
+      "std": 2.0
+    },
+    "h": 0.15,
+    "lead_time_weights": [
+      0.5,
+      0.35,
+      0.15
+    ],
+    "max_steps": 30,
+    "p": 6.0,
+    "q_max": 40.0,
+    "q_min": 0.0,
+    "v": 1.0
+  },
+  "evaluation_dir": "/Users/juanjosealcaraz/Documents/Articulos/InProgress/Inventory/artifacts/sku_registry/skus/sku-001/agents/sac-c62a2e37/evaluations",
+  "evaluation_index": "/Users/juanjosealcaraz/Documents/Articulos/InProgress/Inventory/artifacts/sku_registry/skus/sku-001/agents/sac-c62a2e37/evaluations/evaluations.json",
+  "learning_curves_dir": "/Users/juanjosealcaraz/Documents/Articulos/InProgress/Inventory/artifacts/trained_models/sku_001/sac_c62a2e37/learning_curves",
+  "model_path": "/Users/juanjosealcaraz/Documents/Articulos/InProgress/Inventory/artifacts/trained_models/sku_001/sac_c62a2e37/model_best.zip",
+  "sku_id": "sku_001",
+  "status_path": "/Users/juanjosealcaraz/Documents/Articulos/InProgress/Inventory/artifacts/trained_models/sku_001/sac_c62a2e37/status.json",
+  "training_config": {
+    "base_seed": 123,
+    "eval_freq": 250,
+    "n_eval_episodes": 5,
+    "n_replicas": 5,
+    "output_dir": "/Users/juanjosealcaraz/Documents/Articulos/InProgress/Inventory/artifacts/trained_models/sku_001",
+    "total_timesteps": 5000
+  }
+}

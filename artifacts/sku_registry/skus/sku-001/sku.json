@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-03-12T16:12:12Z",
+  "sku_config": {
+    "K_fix": 8.0,
+    "Lmax": 3,
+    "demand_spec": {
+      "high": 20.0,
+      "kind": "normal_clipped",
+      "low": 0.0,
+      "mean": 8.5,
+      "std": 2.0
+    },
+    "h": 0.15,
+    "lead_time_weights": [
+      0.5,
+      0.35,
+      0.15
+    ],
+    "max_steps": 30,
+    "p": 6.0,
+    "q_max": 40.0,
+    "q_min": 0.0,
+    "v": 1.0
+  },
+  "sku_id": "sku_001"
+}
