@@ -1,16 +1,16 @@
 # Inventory Control with MPC and RL
 
-Experimentation framework that allows the creation and evaluation of Model Predictive Control (MPC) and Reinforcement Learning (RL) agents to make replenishment decisions on a stochastic SKU inventory control scenario.
+Experimentation framework that allows the creation and evaluation of autonomous agents to make replenishment decisions on a stochastic SKU inventory control scenario.
+
+The decision agents can be based on two complementary apporaches:
+- Model Predictive Control (MPC) built with [Pyomo](https://github.com/Pyomo/pyomo).
+- Reinforcement Learning (RL) built on [Gymnasium](https://github.com/Farama-Foundation/Gymnasium) and [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3).
 
 The framework provides a compact but complete workflow for:
 - modeling the inventory dynamics,
 - training and registering RL agents,
 - evaluating RL and MPC policies on shared scenarios,
 - and comparing their KPI distributions.
-
-Includes two complementary control approaches:
-- Model Predictive Control (MPC) built with [Pyomo](https://github.com/Pyomo/pyomo).
-- Reinforcement Learning (RL) built on [Gymnasium](https://github.com/Farama-Foundation/Gymnasium) and [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3).
 
 ## System Dynamics
 
