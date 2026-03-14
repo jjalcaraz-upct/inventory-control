@@ -2,7 +2,7 @@
 
 Experimentation framework that allows the creation and evaluation of autonomous agents to make replenishment decisions on a stochastic SKU inventory control scenario.
 
-The decision agents can be based on two complementary apporaches:
+The decision agents can be based on two complementary approaches:
 - Model Predictive Control (MPC) built with [Pyomo](https://github.com/Pyomo/pyomo).
 - Reinforcement Learning (RL) built on [Gymnasium](https://github.com/Farama-Foundation/Gymnasium) and [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3).
 
