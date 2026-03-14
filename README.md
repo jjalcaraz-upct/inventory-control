@@ -14,7 +14,7 @@ The framework provides a compact but complete workflow for:
 
 ## System Dynamics
 
-The underlying model is a single-SKU lost-sales inventory system with uncertain demand and stochastic lead time.
+The controlled environment is a single-SKU lost-sales inventory system with uncertain demand and stochastic lead time.
 
 At each period $k$ and scenario $s$:
 - $I_{k,s}$ is the on-hand inventory at the start of the period.
