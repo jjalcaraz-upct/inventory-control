@@ -1,8 +1,8 @@
 # Inventory Control with MPC and RL
 
-Experimentation framework for creating and evaluating Model Predictive Control (MPC) and Reinforcement Learning (RL) agents on a stochastic SKU inventory control scenario.
+Experimentation framework that allows the creation and evaluation of Model Predictive Control (MPC) and Reinforcement Learning (RL) agents to make replenishment decisions on a stochastic SKU inventory control scenario.
 
-It provides a compact but complete workflow for:
+The framework provides a compact but complete workflow for:
 - modeling the inventory dynamics,
 - training and registering RL agents,
 - evaluating RL and MPC policies on shared scenarios,
