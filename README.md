@@ -198,4 +198,4 @@ If you use this repository in academic work, please cite it as:
 
 ## Licensing information
 
-This code is released under the MIT lisence.
+This code is released under the MIT license.
